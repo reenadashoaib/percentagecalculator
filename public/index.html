@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Percentage Calculator – Percent of, Percent Change, Discounts</title>
+  <meta name="description" content="Free percentage calculator. Find X% of a number, what percent one number is of another, percent increase or decrease, discounts and reverse percentages, with the working shown.">
+  <link rel="canonical" href="https://example.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Percentage Calculator">
+  <meta property="og:description" content="Work out any percentage in one line, with the formula shown.">
+  <meta property="og:url" content="https://example.com/">
+  <meta name="theme-color" content="#16213b">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/ads-config.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Percentage Calculator",
+        "url": "https://example.com/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How do I calculate a percentage of a number?", "acceptedAnswer": { "@type": "Answer", "text": "Divide the percentage by 100 and multiply by the number. 15% of 240 is 15 ÷ 100 × 240 = 36." } },
+          { "@type": "Question", "name": "How do I work out percentage increase?", "acceptedAnswer": { "@type": "Answer", "text": "Subtract the old value from the new value, divide by the old value and multiply by 100. From 80 to 100 is (100 − 80) ÷ 80 × 100 = 25% increase." } },
+          { "@type": "Question", "name": "Is a 50% increase undone by a 50% decrease?", "acceptedAnswer": { "@type": "Answer", "text": "No. 100 increased by 50% is 150, and 150 decreased by 50% is 75. The second percentage is taken from a larger number." } },
+          { "@type": "Question", "name": "What is the difference between percent and percentage points?", "acceptedAnswer": { "@type": "Answer", "text": "Percentage points are the plain difference between two percentages. A rate going from 4% to 5% rose by 1 percentage point, which is a 25% increase." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+
+  <header class="site-header">
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 34 34" aria-hidden="true">
+        <rect width="34" height="34" rx="8" fill="#16213b"/>
+        <rect x="6" y="22" width="22" height="5" rx="2.5" fill="#2f4277"/>
+        <rect x="6" y="22" width="14" height="5" rx="2.5" fill="#ffd84d"/>
+        <circle cx="11" cy="10" r="3" fill="none" stroke="#fff" stroke-width="2"/>
+        <circle cx="23" cy="16" r="3" fill="none" stroke="#fff" stroke-width="2"/>
+        <path d="M24 8 10 18" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Percentage Calculator
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/" aria-current="page">Calculator</a>
+      <a href="#guide">How it works</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="ad ad-top" data-ad="top-banner" data-ad-name="Top banner">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-box"></div>
+  </div>
+
+  <div class="page">
+    <aside class="rail rail-left" aria-label="Advertisement">
+      <div class="ad ad-skyscraper" data-ad="left-rail" data-ad-name="Vertical banner">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-box"></div>
+      </div>
+    </aside>
+
+    <main class="main" id="main">
+      <div class="page-intro">
+        <h1>Percentage calculator</h1>
+        <p>Pick the question you're asking, type your numbers, and the answer updates as you go. The working is shown so you can check it.</p>
+      </div>
+
+      <section class="calc" id="calculator" aria-label="Calculator">
+        <div class="tabs" role="tablist" aria-label="Type of calculation">
+          <button class="tab" role="tab" id="tab-of" data-mode="of" aria-controls="panel-of">X% of Y</button>
+          <button class="tab" role="tab" id="tab-what" data-mode="what" aria-controls="panel-what">X is what % of Y</button>
+          <button class="tab" role="tab" id="tab-change" data-mode="change" aria-controls="panel-change">Percent change</button>
+          <button class="tab" role="tab" id="tab-adjust" data-mode="adjust" aria-controls="panel-adjust">Add or remove %</button>
+          <button class="tab" role="tab" id="tab-discount" data-mode="discount" aria-controls="panel-discount">Discount</button>
+          <button class="tab" role="tab" id="tab-reverse" data-mode="reverse" aria-controls="panel-reverse">Find the original</button>
+        </div>
+
+        <form class="calc-panel" id="panel-of" role="tabpanel" aria-labelledby="tab-of">
+          <p class="sentence">What is
+            <label><span class="visually-hidden">Percentage</span><input class="num" name="p" inputmode="decimal" autocomplete="off" value="15"></label>%
+            of
+            <label><span class="visually-hidden">Number</span><input class="num" name="y" inputmode="decimal" autocomplete="off" value="240"></label>?
+          </p>
+        </form>
+
+        <form class="calc-panel" id="panel-what" role="tabpanel" aria-labelledby="tab-what" hidden>
+          <p class="sentence">
+            <label><span class="visually-hidden">Part</span><input class="num" name="x" inputmode="decimal" autocomplete="off" value="36"></label>
+            is what percent of
+            <label><span class="visually-hidden">Whole</span><input class="num" name="y" inputmode="decimal" autocomplete="off" value="240"></label>?
+          </p>
+        </form>
+
+        <form class="calc-panel" id="panel-change" role="tabpanel" aria-labelledby="tab-change" hidden>
+          <p class="sentence">From
+            <label><span class="visually-hidden">Starting value</span><input class="num" name="a" inputmode="decimal" autocomplete="off" value="80"></label>
+            to
+            <label><span class="visually-hidden">New value</span><input class="num" name="b" inputmode="decimal" autocomplete="off" value="100"></label>,
+            what's the percent change?
+          </p>
+        </form>
+
+        <form class="calc-panel" id="panel-adjust" role="tabpanel" aria-labelledby="tab-adjust" hidden>
+          <p class="sentence">
+            <label><span class="visually-hidden">Increase or decrease</span><select name="dir"><option value="increase">Increase</option><option value="decrease">Decrease</option></select></label>
+            <label><span class="visually-hidden">Number</span><input class="num" name="y" inputmode="decimal" autocomplete="off" value="240"></label>
+            by
+            <label><span class="visually-hidden">Percentage</span><input class="num" name="p" inputmode="decimal" autocomplete="off" value="15"></label>%
+          </p>
+        </form>
+
+        <form class="calc-panel" id="panel-discount" role="tabpanel" aria-labelledby="tab-discount" hidden>
+          <p class="sentence">A price of
+            <label><span class="visually-hidden">Original price</span><input class="num" name="price" inputmode="decimal" autocomplete="off" value="59.99"></label>
+            with
+            <label><span class="visually-hidden">Discount percentage</span><input class="num" name="p" inputmode="decimal" autocomplete="off" value="20"></label>% off
+          </p>
+        </form>
+
+        <form class="calc-panel" id="panel-reverse" role="tabpanel" aria-labelledby="tab-reverse" hidden>
+          <p class="sentence">
+            <label><span class="visually-hidden">Known part</span><input class="num" name="x" inputmode="decimal" autocomplete="off" value="36"></label>
+            is
+            <label><span class="visually-hidden">Percentage</span><input class="num" name="p" inputmode="decimal" autocomplete="off" value="15"></label>%
+            of what number?
+          </p>
+        </form>
+
+        <div class="result" aria-live="polite">
+          <div class="result-line">
+            <span class="result-value" id="result-value">—</span>
+            <span class="result-caption" id="result-caption"></span>
+          </div>
+          <p class="result-extra" id="result-extra"></p>
+          <p class="hint" id="result-hint" hidden></p>
+          <p class="formula" id="result-formula"></p>
+          <div class="bar" aria-hidden="true">
+            <div class="bar-track"><div class="bar-fill" id="bar-fill"></div></div>
+            <div class="bar-ticks"><span>0%</span><span id="bar-max">100%</span></div>
+          </div>
+          <div class="result-actions">
+            <button class="btn" type="button" id="copy-result">Copy answer</button>
+            <button class="btn btn-quiet" type="button" id="reset-calc">Clear numbers</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="ad-tiles">
+        <div class="ad" data-ad="tile-1" data-ad-name="Tile ad 1">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-box"></div>
+        </div>
+        <div class="ad" data-ad="tile-2" data-ad-name="Tile ad 2">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-box"></div>
+        </div>
+      </div>
+
+      <article class="content" id="guide">
+        <h2>How percentages work</h2>
+        <p>"Percent" means "out of 100". 15% is 15 out of every 100, or 0.15 as a decimal. Every calculation above comes from that one idea: turn the percentage into a decimal by dividing by 100, then multiply or divide.</p>
+
+        <h3>Finding a percentage of a number</h3>
+        <p>Divide the percentage by 100, then multiply by the number. Use this for tips, tax, commission or a share of a bill. <a href="#of" data-mode-link="of">Open this calculator</a>.</p>
+        <p class="example">15% of 240 = 15 ÷ 100 × 240 = <strong>36</strong></p>
+
+        <h3>What percent one number is of another</h3>
+        <p>Divide the part by the whole and multiply by 100. Use this for test scores, survey results or how much of a budget is spent. <a href="#what" data-mode-link="what">Open this calculator</a>.</p>
+        <p class="example">36 out of 240 = 36 ÷ 240 × 100 = <strong>15%</strong></p>
+
+        <h3>Percent increase and decrease</h3>
+        <p>Subtract the old value from the new one, divide by the old value, and multiply by 100. A positive answer is an increase; a negative one is a decrease. <a href="#change" data-mode-link="change">Open this calculator</a>.</p>
+        <p class="example">From 80 to 100 = (100 − 80) ÷ 80 × 100 = <strong>+25%</strong></p>
+
+        <h3>Adding or removing a percentage</h3>
+        <p>To add 15%, multiply by 1.15. To remove 15%, multiply by 0.85. This is how sales tax, price rises and pay rises are worked out. <a href="#adjust" data-mode-link="adjust">Open this calculator</a>.</p>
+        <p class="example">240 increased by 15% = 240 × 1.15 = <strong>276</strong></p>
+      </article>
+
+      <div class="ad-tiles">
+        <div class="ad" data-ad="tile-3" data-ad-name="Tile ad 3">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-box"></div>
+        </div>
+        <div class="ad" data-ad="tile-4" data-ad-name="Tile ad 4">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-box"></div>
+        </div>
+      </div>
+
+      <article class="content">
+        <h3>Working out a discount</h3>
+        <p>Multiply the price by the discount to get the saving, then take that away from the price. <a href="#discount" data-mode-link="discount">Open this calculator</a>.</p>
+        <p class="example">59.99 with 20% off: saving 59.99 × 0.20 = 12.00, so you pay <strong>47.99</strong></p>
+
+        <h3>Finding the original number</h3>
+        <p>If you know a part and what percentage it is, divide the part by the percentage as a decimal. This undoes a "percent of" calculation — handy for working back to a pre-tax price. <a href="#reverse" data-mode-link="reverse">Open this calculator</a>.</p>
+        <p class="example">36 is 15% of 36 ÷ 0.15 = <strong>240</strong></p>
+
+        <h2>Common questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Is a 50% increase undone by a 50% decrease?</summary>
+            <p>No. 100 increased by 50% is 150, and 150 decreased by 50% is 75. The decrease is taken from the bigger number, so you end up lower than you started. To undo a 50% increase you need a 33.33% decrease.</p>
+          </details>
+          <details>
+            <summary>What's the difference between percent and percentage points?</summary>
+            <p>Percentage points are the plain gap between two percentages. An interest rate going from 4% to 5% rose by 1 percentage point — but that's a 25% increase in the rate itself.</p>
+          </details>
+          <details>
+            <summary>Can a percentage be more than 100%?</summary>
+            <p>Yes. 300 is 150% of 200, and a price that goes from 20 to 50 has risen by 150%. A decrease, though, can't be more than 100% unless the value goes below zero.</p>
+          </details>
+          <details>
+            <summary>How do I remove tax from a price that already includes it?</summary>
+            <p>Divide by 1 plus the tax rate. A price of 120 including 20% tax was 120 ÷ 1.20 = 100 before tax. Use "Find the original" with 120 and 120%.</p>
+          </details>
+          <details>
+            <summary>Why does the answer show up to four decimal places?</summary>
+            <p>So you can round it the way you need. Money is usually rounded to two decimal places, which the discount calculator does for you.</p>
+          </details>
+        </div>
+      </article>
+    </main>
+
+    <aside class="rail rail-right" aria-label="Advertisement">
+      <div class="ad ad-halfpage" data-ad="right-rail" data-ad-name="Vertical banner">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-box"></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="ad ad-bottom" data-ad="bottom-banner" data-ad-name="Bottom banner">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-box"></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>© <span id="year">2026</span> Percentage Calculator. Results are for general use; check important figures.</span>
+      <nav aria-label="Footer">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy policy</a>
+        <a href="/terms.html">Terms of use</a>
+      </nav>
+    </div>
+  </footer>
+
+  <aside class="ad-video" id="ad-video" aria-label="Advertisement" hidden>
+    <div class="ad-video-head">
+      <span class="ad-label">Advertisement</span>
+      <button class="icon-close" type="button" aria-label="Close video ad">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="ad-box"></div>
+  </aside>
+
+  <div class="ad-interstitial" id="ad-interstitial" role="dialog" aria-modal="true" aria-label="Advertisement" hidden>
+    <div class="ad-interstitial-card">
+      <div class="ad-interstitial-head">
+        <span class="ad-label">Advertisement</span>
+        <button class="ad-interstitial-skip" type="button">Close ad</button>
+      </div>
+      <div class="ad-box"></div>
+    </div>
+  </div>
+
+  <script src="/js/calculator.js"></script>
+  <script src="/js/ads.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,3 +1,5 @@
 # API keys for the design skills' image generators
 .claude/skills/**/.env
 __pycache__/
+.wrangler/
+node_modules/
