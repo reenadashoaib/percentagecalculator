@@ -1,0 +1,3 @@
+# API keys for the design skills' image generators
+.claude/skills/**/.env
+__pycache__/
